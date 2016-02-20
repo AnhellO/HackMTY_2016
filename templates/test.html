@@ -28,8 +28,8 @@
 		    margin-top: 70px;
 		}
 		#map {
-            height: 500px;
-            width: 500px;
+            height: 800px;
+            width: 1000px;
             z-index: 1;
         }
 		#title {
@@ -48,27 +48,25 @@
         map.setView([25.426933, -100.970340], 13);
 
         var markerLayerGroup = L.layerGroup().addTo(map);
+
 		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 18,
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> Written by <a href="http://www.bitmasons.com">Gordon Haff</a>. Running on OpenShift by Red Hat. <a href="http://bitmason.blogspot.com/p/blog-page_18.html"> About.</a>'
 		}).addTo(map);
 
         function getPins(e){
-
-
             bounds = map.getBounds();
-            url = "/data"
+            url = "/data";
             $.get(url, pinTheMap, "json");
 
         }
-        function pinTheMap(data){
-            //clear the current pins
+
+        function pinTheMap(data)
+        {
             map.removeLayer(markerLayerGroup);
-            // For performance, remove pins at certain scale
             if (map.getZoom() > 8) {
-                //add the new pins
                 var markerArray = new Array(data["trucks"].length)
-                for (var i = 0; i < data["trucks"].length; i++){
+                for (var i = 0; i < data["trucks"].length; i++) {
                     truck = data["trucks"][i];
                     markertext = "<b>"+truck.id + "</b><br \>" + "hora " + truck.timestamp
                     markerArray[i] = L.marker([truck.pos[0], truck.pos[1]],{title: truck.id, riseOnHover: true}).bindPopup(markertext);
@@ -77,18 +75,15 @@
             }
         }
 
-        function foundme(e) {
-
-            // Don't want to move if outside continental US
-            if (e.latlng.lat>24&&e.latlng.lat<50&&e.latlng.lng<-66&&e.latlng.lng>-124) {
-
+        function foundme(e)
+        {
+            if (e.latlng.lat > 24 && e.latlng.lat < 50 && e.latlng.lng < -66 && e.latlng.lng > -124) {
                 map.panTo(e.latlng);
             }
         }
-
         map.on('dragend', getPins);
         map.on('zoomend', getPins);
-        map.whenReady(getPins)
-</script>
+        map.whenReady(getPins);
+    </script>
 </body>
 </html>
