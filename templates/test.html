@@ -44,8 +44,7 @@
 	<div id="map"></div>
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 	<script>
-		var map = L.map('map')
-        map.setView([51.505, -0.09], 13);
+		var map = L.map('map').setView([25.426933, -100.970340], 13);
 
         var markerLayerGroup = L.layerGroup().addTo(map);
 		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -54,19 +53,16 @@
 		}).addTo(map);
 
         function getPins(e){
-
-
             bounds = map.getBounds();
             url = "/data"
             $.get(url, pinTheMap, "json");
 
         }
-        function pinTheMap(data){
-            //clear the current pins
+
+        function pinTheMap(data)
+        {
             map.removeLayer(markerLayerGroup);
-            // For performance, remove pins at certain scale
             if (map.getZoom() > 8) {
-                //add the new pins
                 var markerArray = new Array(data["trucks"].length)
                 for (var i = 0; i < data["trucks"].length; i++){
                     truck = data["trucks"][i];
@@ -77,18 +73,15 @@
             }
         }
 
-        function foundme(e) {
-
-            // Don't want to move if outside continental US
+        function foundme(e)
+        {
             if (e.latlng.lat>24&&e.latlng.lat<50&&e.latlng.lng<-66&&e.latlng.lng>-124) {
-
                 map.panTo(e.latlng);
             }
         }
-
         map.on('dragend', getPins);
         map.on('zoomend', getPins);
-        map.whenReady(getPins)
-</script>
+        map.whenReady(getPins);
+    </script>
 </body>
 </html>
