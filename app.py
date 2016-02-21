@@ -70,13 +70,14 @@ def new_pos():
 
 @app.route("/data")
 def data():
+    global trucks
     result = {'trucks': [trucks[x] for x in trucks.keys()]}
     #turn the results into valid JSON
     return jsonify(result)
 
 @app.route('/')
 def get_students():
-    return render_template("index.html")
+    return render_template("test.html")
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
