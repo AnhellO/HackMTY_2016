@@ -62,8 +62,6 @@
 
         function pinTheMap(data)
         {
-            console.log(data)
-            console.log(data["trucks"][0])
             map.removeLayer(markerLayerGroup);
             if (map.getZoom() > 8) {
                 var markerArray = new Array(data["trucks"].length)
