@@ -58,7 +58,6 @@
             bounds = map.getBounds();
             url = "/data";
             $.get(url, pinTheMap, "json");
-
         }
 
         function pinTheMap(data)
@@ -81,9 +80,14 @@
                 map.panTo(e.latlng);
             }
         }
+
         map.on('dragend', getPins);
         map.on('zoomend', getPins);
-        map.whenReady(getPins);
+
+        window.setInterval(function() {
+            map.whenReady(getPins);
+        }, 30000);
+
     </script>
 </body>
 </html>
