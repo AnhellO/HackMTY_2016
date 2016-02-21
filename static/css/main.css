@@ -718,17 +718,18 @@ Media Queries Style
     width: 100%;
   }
   .navbar-default .navbar-toggle {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-style: groove;
+    border-color: #fff;
   }
   .navbar-default .navbar-toggle .icon-bar {
-    background-color: #fff;
+    border-color: #fff;
   }
   .navbar-default .navbar-toggle:hover,
   .navbar-default .navbar-toggle:focus,
   .navbar-default .navbar-toggle:active {
-    background: none;
+      border-color: #fff;
   }
   .navbar-default .navbar-left,
   .navbar-default .navbar-right {
