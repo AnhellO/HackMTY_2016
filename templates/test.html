@@ -67,7 +67,7 @@
                 var markerArray = new Array(data["trucks"].length)
                 for (var i = 0; i < data["trucks"].length; i++) {
                     truck = data["trucks"][i];
-                    markertext = "<b>"+truck.id + "</b><br \>Dir " + truck.dir
+                    markertext = "<b>"+truck.id + "</b><br \>Dir " + truck.dir + "</b><br \>Time " + truck.timestamp
                     markerArray[i] = L.marker([truck.pos[0], truck.pos[1]],{title: truck.id, riseOnHover: true}).bindPopup(markertext);
                 }
                 markerLayerGroup = L.layerGroup(markerArray).addTo(map);

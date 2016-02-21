@@ -5,6 +5,7 @@ from flask import render_template
 from flask import make_response
 from flask.ext.httpauth import HTTPBasicAuth
 import json
+import datetime
 
 app = Flask(__name__)
 
@@ -42,9 +43,10 @@ def new_pos():
     global trucks
     if not request.json:
         abort(400)
+    timestamp = datetime.datetime.utcnow() - datetime.timedelta(hours=6)
     truck = {
         'id': request.json['id'],
-        'timestamp': request.json['timestamp'],
+        'timestamp': timestamp.strftime('%H:%M:%S - %d/%b/%y'),
         'pos': request.json['pos'],
         'dir': 'none'
     }
