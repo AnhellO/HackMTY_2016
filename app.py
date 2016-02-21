@@ -5,6 +5,7 @@ from flask import render_template
 from flask import make_response
 from flask.ext.httpauth import HTTPBasicAuth
 import json
+import datetime
 
 app = Flask(__name__)
 
@@ -31,7 +32,7 @@ def reset():
     global trucks
     global last_pos
     trucks = {}
-    last_post = {}
+    last_pos = {}
     return jsonify({'response': '200'}), 201
 
 # ============== Data input ================
@@ -40,11 +41,13 @@ def reset():
 @auth.login_required
 def new_pos():
     global trucks
+    global last_pos
     if not request.json:
         abort(400)
+    timestamp = datetime.datetime.utcnow() - datetime.timedelta(hours=6)
     truck = {
         'id': request.json['id'],
-        'timestamp': request.json['timestamp'],
+        'timestamp': timestamp.strftime('%H:%M:%S - %d/%b/%y'),
         'pos': request.json['pos'],
         'dir': 'none'
     }
@@ -68,8 +71,10 @@ def new_pos():
 
 @app.route("/data")
 def data():
+    global trucks
     result = {'trucks': [trucks[x] for x in trucks.keys()]}
     #turn the results into valid JSON
+    print(trucks)
     return jsonify(result)
 
 @app.route('/')
