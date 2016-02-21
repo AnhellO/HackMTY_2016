@@ -37,7 +37,4 @@ function foundme(e)
 
 map.on('dragend', getPins);
 map.on('zoomend', getPins);
-
-window.setInterval(function() {
-    map.whenReady(getPins);
-}, 30000);
+map.whenReady(getPins);

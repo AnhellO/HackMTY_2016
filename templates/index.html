@@ -5,15 +5,14 @@
 	<!--[if lte IE 8]>
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.ie.css" />
 	<![endif]-->
-	<script type="text/javascript" src="{{ url_for('static', filename = 'js/jQuery.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/leaflet.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/pageFormat.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/mapFormat.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/pageFormat.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/mapFormat.css') }}" />
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/leaflet.js') }}"></script>
 </head>
 <body>
 	<h1 id="title">Mapitas!</h1>
 	<div id="map"></div>
-    <script type="text/javascript" src="{{ url_for('static', filename = 'js/leaflet.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename = 'js/mapClass.js') }}"></script>
 </body>
 </html>
