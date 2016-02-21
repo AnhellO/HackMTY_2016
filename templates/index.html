@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>Mapitas!</title>
 	<!--[if lte IE 8]>
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.ie.css" />
 	<![endif]-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/leaflet.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'leaflet/leaflet.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/pageFormat.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/mapFormat.css') }}" />
-    <script type="text/javascript" src="{{ url_for('static', filename = 'js/leaflet.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/jQuery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'leaflet/leaflet.js') }}"></script>
 </head>
 <body>
 	<h1 id="title">Mapitas!</h1>
