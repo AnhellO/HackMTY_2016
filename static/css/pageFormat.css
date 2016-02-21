@@ -11,8 +11,9 @@ html, body {
     padding: 10px;
     text-align: center;
 }
+
 #title {
     z-index: 2;
     position: absolute;
-    left: 10px;
+    left: 50px;
 }
