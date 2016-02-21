@@ -48,7 +48,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename = 'plugins/WOW/dist/wow.min.js') }}"></script>
 </head>
 <body>
-    <!-- Header
+    <!-- Header & Nav
 	============================================= -->
     <section class="main-header">
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -62,7 +62,6 @@
                     <div class="col-md-8 col-xs-12 nav-wrap">
                         <ul class="nav navbar-nav">
                             <li><a href="#mapa" class="page-scroll">Mapa</a></li>
-                            <li><a href="#informacion" class="page-scroll">Información</a></li>
                             <li><a href="#recorrido" class="page-scroll">Horarios</a></li>
                             <li><a href="#acerca" class="page-scroll">Acerca De</a></li>
                         </ul>
@@ -81,75 +80,11 @@
 	============================================= -->
     <section id="mapa">
         <div class="container">
-            <h2>Welcome To <span>Rise</span></h2>
-            <hr class="sep">
-            <p>Make Yourself At Home Don't Be Shy</p>
+            <h2><br/><br/><br/>Lobus GPS Tracker</h2>
+            <hr class="light-sep">
+            <p>Universidad Autónoma de Coahuila - Facultad de Sistemas &nbsp;</p>
             <div id="map"></div>
             <script type="text/javascript" src="{{ url_for('static', filename = 'js/mapClass.js') }}"></script>
-        </div>
-    </section>
-
-    <!-- Información
-	============================================= -->
-    <section id="informacion">
-        <div class="container">
-            <h2>What We Do</h2>
-            <hr class="light-sep">
-            <p>We Can Do Crazy Things</p>
-            <div class="services-box">
-                <div class="row wow fadeInUp" data-wow-delay=".3s">
-                    <div class="col-md-4">
-                        <div class="media-left"><span class="icon-lightbulb"></span></div>
-                        <div class="media-body">
-                            <h3>Creative Design</h3>
-                            <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="media-left"><span class="icon-mobile"></span></div>
-                        <div class="media-body">
-                            <h3>Bootstrap</h3>
-                            <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4">
-                        <div class="media-left"><span class="icon-compass"></span></div>
-                        <div class="media-body">
-                            <h3>Sass &amp; Compass</h3>
-                            <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row wow fadeInUp" data-wow-delay=".6s">
-                        <div class="col-md-4">
-                            <div class="media-left"><span class="icon-adjustments"></span></div>
-                            <div class="media-body">
-                                <h3>Easy To Customize</h3>
-                                <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
-                            </div>
-
-                        </div>
-                        <div class="col-md-4">
-                            <div class="media-left"><span class="icon-tools"></span></div>
-                            <div class="media-body">
-                                <h3>Photoshop</h3>
-                                <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
-                            </div>
-
-                        </div>
-                        <div class="col-md-4">
-                            <div class="media-left"><span class="icon-wallet"></span></div>
-                            <div class="media-body">
-                                <h3>Money Saver</h3>
-                                <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -157,18 +92,27 @@
 	============================================= -->
     <section id="recorrido">
         <div class="container">
-            <img src="{{ url_for('static', filename = 'img/schedule.jpg') }}" alt="">
+            <hr class="sep">
+            <div class="row wow fadeInUp" data-wow-delay=".3s">
+                <div class="col-md-4">
+                    <div class="team">
+                        <img class="img-responsive center-block" src="{{ url_for('static', filename = 'img/schedule.jpg') }}" alt="logo">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- Acercade
+
+    <!-- Acerca de
 	============================================= -->
     <section id="acerca">
         <div class="container">
-            <h1>Rise</h1>
+            <hr class="light-sep">
+            <h1>UAdeC ACM Student Chapter.</h1>
             <div class="social">
                 <a href="https://www.facebook.com/UAdeC.ACM/" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
             </div>
-            <h6>&copy; 2015 Rise.Development By BootstrapDev. Updated by AnhellO</h6>
+            <h6>&copy; Template by 2015 Rise. Development By BootstrapDev. Updated by AnhellO</h6>
         </div>
     </section>
 </body>
