@@ -1,0 +1,9 @@
+.leaflet-container .leaflet-control-zoom {
+    margin-left: 13px;
+    margin-top: 70px;
+}
+#map {
+    height: 800px;
+    width: 1000px;
+    z-index: 1;
+}
