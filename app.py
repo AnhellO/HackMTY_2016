@@ -32,7 +32,7 @@ def reset():
     global trucks
     global last_pos
     trucks = {}
-    last_post = {}
+    last_pos = {}
     return jsonify({'response': '200'}), 201
 
 # ============== Data input ================
@@ -41,6 +41,7 @@ def reset():
 @auth.login_required
 def new_pos():
     global trucks
+    global last_pos
     if not request.json:
         abort(400)
     timestamp = datetime.datetime.utcnow() - datetime.timedelta(hours=6)
