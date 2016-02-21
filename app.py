@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 
 trucks = {}
+last_pos = {}
 # ============== Authentication =================
 auth = HTTPBasicAuth()
 
@@ -23,6 +24,16 @@ def get_password(username):
 def unauthorized():
     return make_response(jsonify({'error': 'Unauthorized access'}), 401)
 
+# ============== Data reset ================
+@app.route('/reset', methods=['GET'])
+@auth.login_required
+def reset():
+    global trucks
+    global last_pos
+    trucks = {}
+    last_post = {}
+    return jsonify({'response': '200'}), 201
+
 # ============== Data input ================
 
 @app.route('/truck', methods=['POST'])
@@ -31,17 +42,27 @@ def new_pos():
     global trucks
     if not request.json:
         abort(400)
-    task = {
+    truck = {
         'id': request.json['id'],
         'timestamp': request.json['timestamp'],
-        'pos': request.json['pos']
+        'pos': request.json['pos'],
+        'dir': 'none'
     }
-    if task['id'] not in trucks:
-        trucks[task['id']] = task
+    if truck['id'] not in trucks:
+        trucks[truck['id']] = truck
+        last_pos[truck['id']] = truck
     else:
-        trucks[task['id']] = task
+        trucks[truck['id']] = truck
 
-    return jsonify({'task': task}), 201
+        if truck['pos'][1] < last_pos[truck['id']]['pos'][1]:
+            # Arteaga to Saltillo
+            trucks[truck['id']]['dir'] = 'Arteaga -> Saltillo'
+        else:
+            # Saltillo to Arteaga
+            trucks[truck['id']]['dir'] = 'Saltillo -> Arteaga'
+        last_pos[truck['id']] = truck
+
+    return jsonify({'truck': truck}), 201
 
 # ============ Data output =================
 
