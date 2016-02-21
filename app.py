@@ -74,6 +74,7 @@ def data():
     global trucks
     result = {'trucks': [trucks[x] for x in trucks.keys()]}
     #turn the results into valid JSON
+    print(trucks)
     return jsonify(result)
 
 @app.route('/')
